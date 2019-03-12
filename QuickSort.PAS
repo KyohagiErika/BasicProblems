@@ -1,4 +1,4 @@
-program BubbleSort;
+program QuickSort;
 var
     A : Array[1..10000] of integer;
     n : integer;
