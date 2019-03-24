@@ -2,22 +2,18 @@
 
 #define MAXN 10000
 #define	MAXM 15000
-#define IPFNAME "C:/PascalFiles/PRIM.INP"
-#define OPFNAME "C:/PascalFiles/PRIM.OUT"
 
 int n, m, c[MAXN][MAXM],g[MAXN][MAXM],total;
 bool checked[MAXN];
 
 void Input() {
-	FILE *ipf = fopen(IPFNAME,"r");
-	fscanf(ipf,"%d%d",&n,&m);
+	scanf("%d%d",&n,&m);
 	for (int i = 1 ; i <= m ; i++) {
 		int u, v, value;
-		fscanf(ipf,"%d%d%d",&u,&v,&value);
+		scanf("%d%d%d",&u,&v,&value);
 		c[u][v] = value;
 		c[v][u] = value;
 	}
-	fclose(ipf);
 }
 
 void Init() {
@@ -52,12 +48,10 @@ void Process() {
 }
 
 void Output() {
-	FILE *opf = fopen(OPFNAME,"w");
-	fprintf(opf, "%d\n", total);
+	printf("%d\n", total);
 	for (int i = 1 ; i <= n ; i++)
 		for (int j = 1 ; j <= n ; j++)
-			if (i <= j && g[i][j] != 0) fprintf(opf, "%d %d %d\n", i,j,g[i][j]);
-	fclose(opf);
+			if (i <= j && g[i][j] != 0) fprintf("%d %d %d\n", i,j,g[i][j]);
 }
 
 int main()
